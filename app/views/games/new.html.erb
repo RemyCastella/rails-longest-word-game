@@ -1,0 +1,30 @@
+<section class="flex flex-col gap-8">
+  <p class="text-3xl text-lime-900">Total score: <%= @total_score %></p>
+  <div class="max-w-3xl mt-4 flex flex-wrap gap-2">
+    <% @letters.each do |letter| %>
+      <div class="flex justify-center items-center rounded-md bg-lime-400 size-16 text-lime-950 text-3xl font-bold"><%= letter %></div>
+    <% end %>
+  </div>
+
+  <form class="flex flex-col justify-center"
+        action="/score"
+        method="post"
+        data-turbo="false">
+    <label class="text-lg text-lime-950 font-medium"
+           for="word">
+          What is the longest word you can find?
+    </label>
+
+    <div class="flex mt-4">
+      <input class="text-lg text-lime-900 font-medium py-1.5 pr-3 pl-1 rounded-l-md border-2 border-lime-900"
+             type="text"
+             id="word"
+             name="word">
+      <input class="cursor-pointer bg-lime-900 text-lime-100 font-medium px-3 py-2 rounded-r-lg hover:bg-lime-700"
+             type="submit"
+             value="Play!">
+    </div>
+    <input type="hidden" name="letters" value="<%= @letters.join("") %>">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
+</section>

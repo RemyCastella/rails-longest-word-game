@@ -1,0 +1,10 @@
+<div class="flex flex-col justify-center items-center h-lvh">
+  <p class="text-3xl">Total score: <%= @total_score %> pts</p>
+  <p class="text-7xl mt-4"><%= @score %> pts</p>
+  <div class="mt-12 flex flex-col bg-lime-100 p-12">
+    <p class="text-3xl"><span class="text-lg">Allowed letters:</span> <%= @letters.join("") %></p>
+    <p class="text-3xl mt-4"><span class="text-lg">Your answer:</span> <%= @word %></p>
+    <h1 class="text-3xl text-lime-950 mt-4"><%= @message %></h1>
+  </div>
+  <%= link_to "Play again", new_path, class: "mt-12 text-lime-900 text-3xl hover:text-lime-700"%>
+</div>
